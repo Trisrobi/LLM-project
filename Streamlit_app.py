@@ -22,7 +22,7 @@ def load_models():
 @st.cache_data
 def load_data():
     # Load your dataset here if needed
-    return pd.read_csv("train.csv")
+    return pd.read_csv("Train DF.csv")
 
 embedding_model, embedding_classifier = load_models()
 data = load_data()
