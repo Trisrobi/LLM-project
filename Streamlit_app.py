@@ -73,7 +73,7 @@ with tab1:
                 recent_df["predicted category"]== recent_category
             ]
 
-        recent_df["Confidence"] = recent_df["Confidence"].map(lambda x: f"{x:.2f}")
+        recent_df["confidence"] = recent_df["confidence"].map(lambda x: f"{x:.2f}")
 
         st.dataframe(recent_df, use_container_width=True)
     else:
