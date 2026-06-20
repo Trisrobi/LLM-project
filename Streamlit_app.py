@@ -117,6 +117,6 @@ with tab1:
         )
 
         st.dataframe(
-            spotlight[["headline", "category"]],
+            spotlight[["title", "category"]],
             use_container_width=True
         )
