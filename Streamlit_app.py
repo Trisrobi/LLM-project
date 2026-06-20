@@ -50,7 +50,8 @@ with tab1:
             confidence = probabilities[prediction]
 
             st.success(f"Predicted category: {predicted_label}")
-            st.metric(f"Prediction Confidence: {confidence:.2f}")
+            confidence = float(confidence)
+            st.metric("Prediction Confidence", f"{confidence:.2%}")
 
             st.session_state.classified_headlines.append({
                 "headline": headline,
