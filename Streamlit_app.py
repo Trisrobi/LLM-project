@@ -79,44 +79,44 @@ with tab1:
     else:
         st.info("No Headlines Classified yet.")
 
-    with tab2:
-        st.subheader("Real headline dataset")
+with tab2:
+    st.subheader("Real headline dataset")
 
-        st.write("Explore real headlines from your dataset.")
+    st.write("Explore real headlines from your dataset.")
 
-        category_filter = st.selectbox(
-            "Filter dataset by category",
-            ["All"] + sorted(data["category"].unique())
-        )
+    category_filter = st.selectbox(
+        "Filter dataset by category",
+        ["All"] + sorted(data["category"].unique())
+    )
 
-        filtered_data = data.copy()
+    filtered_data = data.copy()
 
-        if category_filter != "All":
-            filtered_data = filtered_data[
-                filtered_data["category"] == category_filter
-            ]
+    if category_filter != "All":
+        filtered_data = filtered_data[
+            filtered_data["category"] == category_filter
+        ]
 
-        col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-        with col1:
-            st.metric("Total headlines", len(data))
+    with col1:
+        st.metric("Total headlines", len(data))
 
-        with col2:
-            st.metric("Headlines shown", len(filtered_data))
+    with col2:
+        st.metric("Headlines shown", len(filtered_data))
 
-        n_examples = st.slider(
-            "Number of headlines to spotlight",
-            min_value=5,
-            max_value=50,
-            value=10
-        )
+    n_examples = st.slider(
+        "Number of headlines to spotlight",
+        min_value=5,
+        max_value=50,
+        value=10
+    )
 
-        spotlight = filtered_data.sample(
-            min(n_examples, len(filtered_data)),
-            random_state=42
-        )
+    spotlight = filtered_data.sample(
+        min(n_examples, len(filtered_data)),
+        random_state=42
+    )
 
-        st.dataframe(
-            spotlight[["title", "category"]],
-            use_container_width=True
-        )
+    st.dataframe(
+        spotlight[["title", "category"]],
+        use_container_width=True
+    )
